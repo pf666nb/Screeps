@@ -14,6 +14,8 @@ let createcreep = require('role.create');
 let mainutil = require('main.util');
 //引入循环生成creeps模块
 let loopCreate = require('role.loopCreate');
+//引入防御塔的模块
+let Structure_tower = require('structure.tower');
 
 
 //主循环
@@ -25,6 +27,17 @@ module.exports.loop = function () {
             console.log("清除了死亡creep的记忆--名字为",name);
         }
     }
+
+    //抽出当前房间的防御塔
+//     let tower = Game.spawns[mainconfig.MySpawn[0]].room.find(FIND_STRUCTURES,{
+//         filter: (structure) => {
+//             return (structure.structureType == STRUCTURE_TOWER)            
+//         }
+// });
+    let tower = Game.getObjectById('5f8338d3a58ab1bb76bacf1e');
+    Structure_tower.attack(tower);
+    Structure_tower.repair(tower);
+    
 
     loopCreate.loopCreate(mainconfig.MySpawn[0],roleconfig.BaiscsLoopCreate);
 

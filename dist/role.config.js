@@ -27,11 +27,11 @@ let roleconfig = {
 
     BaiscsLoopCreate:{
         Bigharvester:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"harvester",limt:2},
-        BigUpgrader:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"upgrader",limt:3},
-        BigBuilder:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"builder",limt:3},
-        harvester:{body:[WORK,CARRY,MOVE],role:"harvester",limt:1},
-        builder:{body:[WORK,CARRY,MOVE],role:"builder",limt:3},
-        upgrader:{body:[WORK,CARRY,MOVE],role:"upgrader",limt:3},
+        BigUpgrader:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"upgrader",limt:2},
+        BigBuilder:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"builder",limt:2},
+        // harvester:{body:[WORK,CARRY,MOVE],role:"harvester",limt:1},
+        // builder:{body:[WORK,CARRY,MOVE],role:"builder",limt:3},
+        // upgrader:{body:[WORK,CARRY,MOVE],role:"upgrader",limt:3},
     }
    
 
