@@ -24,8 +24,8 @@ let loopCreate = {
             //根据配置中的role去查询相应的creeps数量
             let creepsNum = _.filter(Game.creeps,(creep) => creep.memory.role == role).length;
             // console.log("可使用的能量"+energyAvailable+"所需能量"+bodycost)
-            
-     
+       
+            // console.log(creepsConfig[creepobj].limt);
            
             //判断creeps数量是否小于配置中的限制数量，如果小于则生成对应配置的creeps
             if(creepsConfig[creepobj].limt>creepsNum&&energyAvailable>=bodycost){

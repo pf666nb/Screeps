@@ -16,10 +16,14 @@ let mainutil = require('main.util');
 let loopCreate = require('role.loopCreate');
 //引入防御塔的模块
 let Structure_tower = require('structure.tower');
+//引入mount
+const mount = require('./mount')
 
 
 //主循环
 module.exports.loop = function () {
+    mount();
+    
     //清理死亡creeps的记忆
     for(let name in Memory.creeps){
         if(!Game.creeps[name]){
@@ -29,14 +33,21 @@ module.exports.loop = function () {
     }
 
     //抽出当前房间的防御塔
-//     let tower = Game.spawns[mainconfig.MySpawn[0]].room.find(FIND_STRUCTURES,{
-//         filter: (structure) => {
-//             return (structure.structureType == STRUCTURE_TOWER)            
-//         }
-// });
-    let tower = Game.getObjectById('5f8338d3a58ab1bb76bacf1e');
-    Structure_tower.attack(tower);
-    Structure_tower.repair(tower);
+    let tower = Game.spawns[mainconfig.MySpawn[0]].room.find(FIND_STRUCTURES,{
+        filter: (structure) => {
+            return (structure.structureType == STRUCTURE_TOWER)            
+        }
+    });
+    tower.forEach(e => {
+        Structure_tower.attack(e);
+        Structure_tower.limtrepair(e,STRUCTURE_WALL,1000000)
+    });
+    // let tower2 = _.chunk(tower1,10)
+ 
+    // console.log(tower2);
+    // let tower = Game.getObjectById('5f8338d3a58ab1bb76bacf1e');
+    // Structure_tower.attack(tower);
+    // Structure_tower.repair(tower);
     
 
     loopCreate.loopCreate(mainconfig.MySpawn[0],roleconfig.BaiscsLoopCreate);
@@ -108,8 +119,9 @@ module.exports.loop = function () {
     
 
     //每个creeps执行相应的行动
-    for(var name in Game.creeps) {
-        var creep = Game.creeps[name];
+    for(let name in Game.creeps) {
+        let creep = Game.creeps[name];
+ 
         if(creep.memory.role == roleconfig.harvester) {
             roleHarvester.run(creep);
         }

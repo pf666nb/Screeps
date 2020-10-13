@@ -1,6 +1,11 @@
 //creeps的配置
 
 let roleconfig = {
+
+
+    getlimt(Num){
+        return roleconfig.Num;
+    },
     
     //设定creeps的分工
     harvester:"harvester",
@@ -19,15 +24,12 @@ let roleconfig = {
     BigUpgraderCreeps:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],
     BigHarvesterCreeps:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],
 
-    // test:{
-    //     body:{limt:HarvesterNum}
-    // },
 
-
+    
 
     BaiscsLoopCreate:{
         Bigharvester:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"harvester",limt:2},
-        BigUpgrader:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"upgrader",limt:2},
+        BigUpgrader:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"upgrader",limt:3},
         BigBuilder:{body:[WORK,WORK,WORK,CARRY,CARRY,CARRY,MOVE,MOVE],role:"builder",limt:2},
         // harvester:{body:[WORK,CARRY,MOVE],role:"harvester",limt:1},
         // builder:{body:[WORK,CARRY,MOVE],role:"builder",limt:3},
