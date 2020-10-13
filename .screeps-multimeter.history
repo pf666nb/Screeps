@@ -1,4 +1,0 @@
-Game.spawns['Spawn1'].room.createConstructionSite(10,21,STRUCTURE_EXTENSION)
-ff
-1
-dd
